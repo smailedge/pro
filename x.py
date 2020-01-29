@@ -10,9 +10,10 @@ from gtts import gTTS
 from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
-cl = LINE()
-cl.log(token="ENB5GnSlVPfo9yxePnEc.za3+ZjFkdwx4tkMsS55p3a.pNBX3G5BOskb1p7uZ6ccnLX4v02ffs6SJVOtZpwo7Js=")
-cl.log("Timeline Token : " + str(cl.tl.channelAccessToken))
+cl = LINETCR.LINE() #Luffy
+#cl.login(qr=True)
+cl.login(token="ENB5GnSlVPfo9yxePnEc.za3+ZjFkdwx4tkMsS55p3a.pNBX3G5BOskb1p7uZ6ccnLX4v02ffs6SJVOtZpwo7Js=")
+cl.loginResult()
 print ("====Admin登入成功====")
 k1 = LINE()
 k1.log("Auth Token : " + str(k1.authToken))
