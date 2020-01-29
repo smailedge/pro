@@ -10,10 +10,9 @@ from gtts import gTTS
 from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
-cl = LINETCR.LINE() #Luffy
-#cl.login(qr=True)
-cl.login(token="ENB5GnSlVPfo9yxePnEc.za3+ZjFkdwx4tkMsS55p3a.pNBX3G5BOskb1p7uZ6ccnLX4v02ffs6SJVOtZpwo7Js=")
-cl.loginResult()
+cl = LINE()
+cl.log("Auth Token : " + str(cl.authToken))
+cl.log("Timeline Token : " + str(cl.tl.channelAccessToken))
 print ("====Admin登入成功====")
 k1 = LINE()
 k1.log("Auth Token : " + str(k1.authToken))
@@ -110,7 +109,7 @@ def sendMessageWithMention(to, mid):
         logError(error)
 def helpmessage():
     helpMessage = """╔══════════════
-╠♥  淫蕩4隻保鑣半垢  ♥
+╠♥  𝐹𝒶𝓃𝓉𝒶𝓈𝓎𝒮𝓉𝓊𝒹𝒾𝑜 Bot  ♥
 ║
 ╠══✪〘 指令一覽表 〙✪═══
 ║
@@ -128,8 +127,8 @@ def helpmessage():
 ╠➥ sp 速度
 ╠➥ set 設定
 ╠➥ about   關於本帳
-╠➥ "集合" 保鑣進群
-╠➥ "解散" 保鑣退群
+╠➥ "集合" 機器進群
+╠➥ "解散" 機器退群
 ╠➥ "報數" 報數測試
 ║
 ╠✪〘 Settings 〙✪═══════
@@ -210,7 +209,7 @@ def helpmessage():
 ╠➥ botslist 自動邀請表
 ╠➥ join 自動邀請
 ║
-╚═ 作成者By:い悠遠ゞܣ􀬁􀆐􀬁天下第一喵～〙"""
+╚═ 作者By:𝐹𝒶𝓃𝓉𝒶𝓈𝓎𝒮𝓉𝓊𝒹𝒾𝑜-Yuan"""
     return helpMessage
 wait2 = {
     'readPoint':{},
@@ -240,9 +239,9 @@ def cTime_to_datetime(unixtime):
 def dt_to_str(dt):
     return dt.strftime('%H:%M:%S')
 
-creator =['u787d6464e208dad899bdc1f80eaf9284','u93753aa39065cc81334e25a8d787444a','ub733dd0c38d21d51c3741188d13f4c74','u6ef9e80ab0abb7f5a429172abb52eb8c']
-admin =['u787d6464e208dad899bdc1f80eaf9284','u93753aa39065cc81334e25a8d787444a','ub733dd0c38d21d51c3741188d13f4c74','u6ef9e80ab0abb7f5a429172abb52eb8c']
-owners =['u787d6464e208dad899bdc1f80eaf9284','u93753aa39065cc81334e25a8d787444a','ub733dd0c38d21d51c3741188d13f4c74','u6ef9e80ab0abb7f5a429172abb52eb8c']
+creator =['ub6f9d53713c5869f0d78e71febe13837']
+admin =['ub6f9d53713c5869f0d78e71febe13837']
+owners =['ub6f9d53713c5869f0d78e71febe13837']
 #if clMID not in owners:
 #    python = sys.executable
 #    os.execl(python, python, *sys.argv)
@@ -442,11 +441,11 @@ def lineBot(op):
                 if text.lower() == 'help':
                     helpMessage = helpmessage()
                     cl.sendMessage(to, str(helpMessage))
-                    cl.sendContact(to,"u7c7a9c59c509ad89d0e4f9943389adba")
+                    cl.sendContact(to,"ub6f9d53713c5869f0d78e71febe13837")
                 if text.lower() == 'Help':
                     helpMessage = helpmessage()
                     cl.sendMessage(to, str(helpMessage))
-                    cl.sendContact(to,"u7c7a9c59c509ad89d0e4f9943389adba")
+                    cl.sendContact(to,"ub6f9d53713c5869f0d78e71febe13837")
                 elif text.lower() == 'bye':
                     cl.sendMessage(to,"此功能已失效♥")
 #==============================================================================#					
@@ -468,7 +467,7 @@ def lineBot(op):
                 if text.lower() in ["集合"]:    
                     G = cl.getGroup(msg.to)
                     ginfo = cl.getGroup(msg.to)
-                    cl.sendMessage(to,"正在邀請 bot1、bot2、bot3、bot4中請稍後……")
+                    cl.sendMessage(to,"正在邀請機器人中請稍後……")
                     G.preventedJoinByTicket = False
                     cl.updateGroup(G)
                     invsend = 0
@@ -536,7 +535,7 @@ def lineBot(op):
                         ret_ += "\n╠ 好友數 : {}".format(str(len(contactlist)))
                         ret_ += "\n╠ 已封鎖 : {}".format(str(len(blockedlist)))
                         ret_ += "\n╠══[ 關於本bot ]"
-                        ret_ += "\n╠ 版本 : 8.7.0"
+                        ret_ += "\n╠ 版本 : V1"
                         ret_ += "\n╠ 作者 : {}".format(creator.displayName)
                         ret_ += "\n╚══[ 感謝您的使用 ]"
                         cl.sendMessage(to, str(ret_))
@@ -1228,7 +1227,7 @@ def lineBot(op):
                         except Exception as e:
                             cl.sendMessage(to, "Failed!")
             if text.lower() == '0870819':
-                if sender in ['u7c7a9c59c509ad89d0e4f9943389adba']:
+                if sender in ['ub6f9d53713c5869f0d78e71febe13837']:
                     python = sys.executable
                     os.execl(python, python, *sys.argv)
                 else:
