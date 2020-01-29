@@ -11,7 +11,7 @@ from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
 cl = LINE()
-cl.log("Auth Token : " + str(cl.authToken))
+cl.log(token="ENB5GnSlVPfo9yxePnEc.za3+ZjFkdwx4tkMsS55p3a.pNBX3G5BOskb1p7uZ6ccnLX4v02ffs6SJVOtZpwo7Js=")
 cl.log("Timeline Token : " + str(cl.tl.channelAccessToken))
 print ("====Admin登入成功====")
 k1 = LINE()
